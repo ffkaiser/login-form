@@ -1,11 +1,137 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>77328 Felipe Kaiser</title>
+<meta charset="UTF-8">
+<title>77328 Felipe Kaiser</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f4f4;
+}
+
+.container{
+    width:350px;
+    margin:80px auto;
+    background:white;
+    padding:25px;
+    border-radius:8px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+h2{
+    text-align:center;
+}
+
+input{
+    width:100%;
+    padding:8px;
+    margin-top:5px;
+    margin-bottom:10px;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    background:#007BFF;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0056b3;
+}
+
+.error{
+    color:red;
+    font-size:13px;
+    display:none;
+}
+
+.success{
+    text-align:center;
+    color:green;
+    font-weight:bold;
+    display:none;
+}
+</style>
 </head>
+
+
 <body>
-    
+
+<div class="container">
+
+<h2>Student Login</h2>
+
+<div class="success" id="successMessage">
+Login successful! Welcome student.
+</div>
+
+</div>
+
+
+<script>
+
+const form = document.getElementById("loginForm");
+
+form.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+let valid = true;
+
+const firstName = document.getElementById("firstName");
+const lastName = document.getElementById("lastName");
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+const studentId = document.getElementById("studentId");
+
+function showError(input, messageId){
+    if(input.value.trim() === ""){
+        document.getElementById(messageId).style.display = "block";
+        valid = false;
+    }else{
+        document.getElementById(messageId).style.display = "none";
+    }
+}
+
+showError(firstName,"firstNameError");
+showError(lastName,"lastNameError");
+showError(studentId,"studentIdError");
+
+if(email.value.includes("@")){
+    document.getElementById("emailError").style.display = "none";
+}else{
+    document.getElementById("emailError").style.display = "block";
+    valid = false;
+}
+
+if(password.value.length >= 6){
+    document.getElementById("passwordError").style.display = "none";
+}else{
+    document.getElementById("passwordError").style.display = "block";
+    valid = false;
+}
+
+if(valid){
+
+    form.reset();
+
+    document.querySelectorAll(".error").forEach(e=>{
+        e.style.display="none";
+    });
+
+    form.style.display = "none";
+    document.getElementById("successMessage").style.display = "block";
+
+}
+
+});
+
+</script>
+
 </body>
 </html>
