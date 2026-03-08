@@ -66,6 +66,32 @@ button:hover{
 
 <h2>Student Login</h2>
 
+<form id="loginForm">
+
+<label>First Name</label>
+<input type="text" id="firstName">
+<div class="error" id="firstNameError">First name is required</div>
+
+<label>Last Name</label>
+<input type="text" id="lastName">
+<div class="error" id="lastNameError">Last name is required</div>
+
+<label>Email</label>
+<input type="text" id="email">
+<div class="error" id="emailError">Enter a valid email</div>
+
+<label>Password</label>
+<input type="password" id="password">
+<div class="error" id="passwordError">Password must be at least 6 characters</div>
+
+<label>Student ID</label>
+<input type="text" id="studentId">
+<div class="error" id="studentIdError">Student ID is required</div>
+
+<button type="submit">Submit</button>
+
+</form>
+
 <div class="success" id="successMessage">
 Login successful! Welcome student.
 </div>
